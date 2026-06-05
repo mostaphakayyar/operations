@@ -3,575 +3,435 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mostapha Kayyar — Logistics & Operations Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Mostapha Kayyar — Operations & Logistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
+    --bg: #f5f4f0;
     --white: #ffffff;
-    --gray-light: #f7f7f5;
-    --gray-mid: #eeede9;
-    --gray-dark: #e0deda;
-    --ink: #1a1a1a;
-    --ink2: #3a3a3a;
-    --muted: #7a7870;
-    --accent: #1d4ed8;
-    --accent-light: #eff6ff;
-    --gold: #b45309;
-    --border: rgba(0,0,0,0.08);
+    --surface: #eeede8;
+    --border: #d8d6cf;
+    --text: #1a1a18;
+    --muted: #6b6b60;
+    --accent: #2d5a3d;
+    --accent2: #8b4513;
+    --light-accent: #2d5a3d18;
   }
+
   html { scroll-behavior: smooth; }
+
   body {
-    font-family: 'Mulish', sans-serif;
-    background: var(--gray-light);
-    color: var(--ink);
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
+    line-height: 1.7;
   }
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.1rem 3rem;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
     border-bottom: 1px solid var(--border);
+    padding: 1.1rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
   }
-  .nav-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--ink); }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.15rem;
+    color: var(--text); text-decoration: none;
+  }
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent); color: var(--white) !important;
+    padding: 0.4rem 1rem; border-radius: 6px;
+  }
+  .nav-cta:hover { background: #1e3f2a !important; }
 
   /* HERO */
   .hero {
-    background: var(--gray-light);
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    padding: 8rem 3rem 4rem;
-    gap: 4rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .available-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: #ecfdf5;
-    border: 1px solid #6ee7b7;
-    color: #065f46;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.85rem;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-  }
-  .available-badge::before { content: '●'; font-size: 0.45rem; color: #10b981; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 5rem);
-    font-weight: 900;
-    color: var(--ink);
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.4rem;
-  }
-  .hero h1 span { color: var(--accent); }
-  .hero-title {
-    font-size: 0.82rem;
-    color: var(--muted);
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px solid var(--gray-mid);
-  }
-  .hero-summary {
-    font-size: 1rem;
-    color: var(--ink2);
-    font-weight: 300;
-    line-height: 1.85;
-    margin-bottom: 2rem;
-  }
-  .hero-summary strong { color: var(--ink); font-weight: 700; }
-  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-    padding: 0.85rem 2rem;
-    border: none;
-    border-radius: 3px;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: #1e40af; transform: translateY(-1px); }
-  .btn-outline {
-    background: transparent;
-    color: var(--ink);
-    padding: 0.85rem 2rem;
-    border: 1.5px solid var(--ink);
-    border-radius: 3px;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* STATS */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--gray-dark);
-    border: 1px solid var(--gray-dark);
-  }
-  .stat-box {
     background: var(--white);
-    padding: 2rem 1.5rem;
-    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 2.5rem;
+    max-width: 1000px; margin: 0 auto;
   }
-  .stat-box:nth-child(even) { background: var(--gray-mid); }
+  .hero-inner { max-width: 680px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--light-accent); color: var(--accent);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.01em; margin-bottom: 1.25rem;
+  }
+  .hero-sub {
+    font-size: 1rem; color: var(--muted);
+    line-height: 1.75; margin-bottom: 2rem; max-width: 560px;
+  }
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn-green {
+    background: var(--accent); color: var(--white);
+    padding: 0.7rem 1.6rem; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .btn-green:hover { background: #1e3f2a; }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--text);
+    padding: 0.7rem 1.6rem; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--accent);
+    padding: 2rem 2.5rem;
+    display: flex; justify-content: center;
+    gap: 4rem; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: var(--accent);
+    font-size: 2rem; font-weight: 700; color: #fff;
     line-height: 1;
-    display: block;
   }
-  .stat-label { font-size: 0.72rem; color: var(--muted); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.4rem; display: block; }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; }
 
   /* SECTIONS */
-  section { padding: 6rem 3rem; }
-  .section-eyebrow {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;
+  .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2.5rem; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.5rem;
   }
-  .section-title {
+  h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 700; line-height: 1.15; margin-bottom: 0.6rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700; margin-bottom: 2rem;
+    letter-spacing: -0.01em;
   }
-  .section-divider { width: 40px; height: 3px; background: var(--accent); margin-bottom: 3rem; }
 
   /* ACHIEVEMENTS */
-  .achievements { background: var(--gray-light); }
   .achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem; max-width: 1200px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem; margin-bottom: 1rem;
   }
   .achievement-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    padding: 1.75rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem;
+    border-left: 3px solid var(--accent);
   }
-  .achievement-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-  .achievement-metric {
+  .achievement-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem; font-weight: 900;
-    color: var(--accent); line-height: 1; margin-bottom: 0.5rem;
+    font-size: 1.8rem; font-weight: 700; color: var(--accent);
+    line-height: 1; margin-bottom: 0.4rem;
   }
-  .achievement-title { font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
-  .achievement-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+  .achievement-label {
+    font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem;
+  }
+  .achievement-desc { font-size: 0.8rem; color: var(--muted); }
 
-  /* COMPETENCIES */
-  .competencies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.5rem; max-width: 1100px;
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
   }
-  .competency-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--gray-dark);
-    padding: 1.75rem;
-    transition: border-top-color 0.2s, transform 0.2s;
+  .timeline-item {
+    position: relative; padding-bottom: 2.5rem; padding-left: 1.5rem;
   }
-  .competency-card:hover { border-top-color: var(--accent); transform: translateY(-3px); }
-  .competency-icon { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
-  .competency-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
-  .competency-list { list-style: none; }
-  .competency-list li {
-    font-size: 0.85rem; color: var(--muted); font-weight: 400;
-    padding: 0.3rem 0; border-bottom: 1px solid var(--border);
-    display: flex; align-items: flex-start; gap: 0.5rem;
+  .timeline-item::before {
+    content: ''; position: absolute; left: -1.94rem; top: 0.45rem;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
   }
-  .competency-list li:last-child { border-bottom: none; }
-  .competency-list li::before { content: '—'; color: var(--accent); font-size: 0.75rem; margin-top: 0.15rem; flex-shrink: 0; }
+  .timeline-date {
+    font-size: 0.75rem; font-weight: 600; color: var(--accent);
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem;
+  }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem;
+  }
+  .timeline-org {
+    font-size: 0.85rem; color: var(--muted); font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .timeline-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
 
-  /* EXPERIENCE */
-  .experience { background: var(--gray-light); }
-  .exp-item {
-    display: grid; grid-template-columns: 190px 1fr;
-    gap: 3rem; padding: 2.5rem 0;
-    border-bottom: 1px solid var(--border);
-    max-width: 1000px;
+  /* PUBLISHED APPS in ops portfolio */
+  .apps-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
   }
-  .exp-item:last-child { border-bottom: none; }
-  .exp-period { font-size: 0.82rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
-  .exp-company { font-size: 0.82rem; color: var(--ink); font-weight: 600; }
-  .exp-location { font-size: 0.78rem; color: var(--muted); font-weight: 400; margin-top: 0.2rem; }
-  .exp-role { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; }
-  .exp-bullets { list-style: none; }
-  .exp-bullets li {
-    font-size: 0.9rem; color: var(--ink2); font-weight: 400;
-    padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.75rem; line-height: 1.6;
+  .ops-app-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.4rem;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
   }
-  .exp-bullets li::before { content: '◆'; color: var(--accent); font-size: 0.45rem; margin-top: 0.5rem; flex-shrink: 0; }
-  .exp-bullets li strong { color: var(--ink); font-weight: 700; }
-
-  /* EDUCATION */
-  .education { background: var(--gray-light); }
-  .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; max-width: 900px; }
-  .edu-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 1.5rem 1.75rem;
+  .ops-app-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(45,90,61,0.08); }
+  .ops-app-card.main { border-left: 3px solid var(--accent); }
+  .ops-app-name {
+    font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;
   }
-  .edu-year { font-size: 0.78rem; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
-  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
-  .edu-school { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
-
-  /* LANGUAGES */
-  .languages-grid { display: flex; gap: 1rem; flex-wrap: wrap; max-width: 800px; }
-  .lang-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-bottom: 3px solid var(--accent);
-    padding: 1.25rem 1.75rem;
-    text-align: center; min-width: 130px; flex: 1;
-  }
-  .lang-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
-  .lang-level { font-size: 0.72rem; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-
-  /* TECH EDGE */
-  .tech-edge { background: var(--gray-mid); }
-  .tech-edge p { color: var(--ink2); font-weight: 300; line-height: 1.85; max-width: 700px; margin-bottom: 2rem; font-size: 1rem; }
-  .tech-pills { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-  .tech-pill {
-    background: var(--white);
-    border: 1px solid var(--border);
-    color: var(--ink2);
-    font-size: 0.82rem; font-weight: 600;
-    padding: 0.4rem 1rem; border-radius: 2px; letter-spacing: 0.03em;
+  .ops-app-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .ops-app-link { font-size: 0.78rem; color: var(--accent); margin-top: 0.9rem; font-weight: 500; }
+  .ops-app-badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--light-accent); color: var(--accent);
+    padding: 0.2rem 0.5rem; border-radius: 3px; margin-bottom: 0.6rem;
+    width: fit-content;
   }
 
   /* CONTACT */
-  .contact-section { background: var(--ink); text-align: center; padding: 5rem 3rem; }
-  .contact-section .section-eyebrow { color: #60a5fa; }
-  .contact-section .section-title { color: var(--white); margin-bottom: 0.75rem; }
-  .contact-section .section-divider { background: #60a5fa; margin-left: auto; margin-right: auto; }
-  .contact-section p { color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-  .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
-  .contact-email { color: rgba(255,255,255,0.45); font-size: 0.9rem; }
-  .contact-email span { color: #93c5fd; font-weight: 600; }
-  .btn-white {
-    background: var(--gray-light); color: var(--ink);
-    padding: 0.9rem 2rem; border: none; border-radius: 3px;
-    font-family: 'Mulish', sans-serif; font-size: 0.88rem; font-weight: 700;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    cursor: pointer; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+  .contact-section {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 3rem; text-align: center;
   }
-  .btn-white:hover { background: #f0f0f0; transform: translateY(-1px); }
+  .contact-section h2 { margin-bottom: 0.75rem; }
+  .contact-section p { color: var(--muted); max-width: 480px; margin: 0 auto 2rem; }
+  .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .email-line { margin-top: 1.2rem; font-size: 0.85rem; color: var(--muted); }
+  .email-line a { color: var(--accent); text-decoration: none; }
 
+  /* FOOTER */
   footer {
-    background: #111; padding: 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2.5rem;
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.8rem; color: rgba(255,255,255,0.3);
+    max-width: 1000px; margin: 0 auto;
+    color: var(--muted); font-size: 0.8rem; flex-wrap: wrap; gap: 0.75rem;
   }
-  footer a { color: #93c5fd; text-decoration: none; }
+  footer a { color: var(--accent); text-decoration: none; }
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.25rem; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2rem; }
-    section { padding: 4rem 1.5rem; }
-    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero { padding: 3rem 1.25rem; }
+    .container { padding: 3rem 1.25rem; }
+    .stats-bar { gap: 2rem; padding: 1.5rem; }
+    .contact-section { padding: 2rem 1.25rem; }
+    footer { flex-direction: column; text-align: center; padding: 1.25rem; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Mostapha <span>Kayyar</span></div>
+  <a href="/operations" class="nav-logo">Mostapha Kayyar<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#competencies">Competencies</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#apps">Published Apps</a></li>
+    <li><a href="/">AI Portfolio</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div>
-    <div class="available-badge">Open to opportunities · Available immediately</div>
-    <h1>Mostapha<br><span>Kayyar</span></h1>
-    <div class="hero-title">Logistics & Operations Manager · 13+ Years Experience</div>
-    <p class="hero-summary">
-      Results-driven operations leader with <strong>13+ years</strong> managing end-to-end supply chains, FMCG retail, fleet, and international procurement across <strong>Lebanon, Mali, and global suppliers</strong>. I don't just run operations — I improve them, build systems around them, and use data to drive real decisions.
-    </p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Get in Touch</a>
-      <a href="#experience" class="btn-outline">View Experience</a>
-    </div>
-  </div>
-  <div>
-    <div class="stats-grid">
-      <div class="stat-box">
-        <span class="stat-num">13+</span>
-        <span class="stat-label">Years in Operations</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">80%</span>
-        <span class="stat-label">Cost Reduction Achieved</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Inventory Accuracy</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">4</span>
-        <span class="stat-label">Languages Spoken</span>
+<!-- HERO -->
+<div style="background:var(--white); border-bottom:1px solid var(--border)">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Operations & Logistics Specialist</div>
+      <h1>13 years of moving goods,<br>building teams, and<br>fixing broken systems.</h1>
+      <p class="hero-sub">
+        From retail operations in West Africa to government coordination in Lebanon —
+        now combining deep supply chain expertise with applied AI to build smarter logistics tools.
+        Available immediately. Open to relocating.
+      </p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn-green">View Experience</a>
+        <a href="https://www.linkedin.com/in/kayyarmostapha/" target="_blank" class="btn-outline">LinkedIn →</a>
+        <a href="/" class="btn-outline">AI Projects Portfolio →</a>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">13+</div>
+    <div class="stat-label">Years Experience</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">80%</div>
+    <div class="stat-label">Transport Cost Reduction</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Inventory Accuracy Achieved</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Published Windows Apps</div>
+  </div>
+</div>
 
 <!-- ACHIEVEMENTS -->
-<section class="achievements" id="achievements">
-  <div class="section-eyebrow">Impact & Results</div>
-  <div class="section-title">Numbers that speak for themselves</div>
-  <div class="section-divider"></div>
+<div class="container" id="achievements">
+  <div class="section-label">Impact</div>
+  <h2>Measurable Results</h2>
   <div class="achievements-grid">
     <div class="achievement-card">
-      <div class="achievement-metric">80%</div>
-      <div class="achievement-title">Cost Reduction</div>
-      <div class="achievement-desc">Reduced operational and transportation costs through logistics process and fleet route optimization at Badawistore Group.</div>
+      <div class="achievement-num">80%</div>
+      <div class="achievement-label">Transportation Cost Reduction</div>
+      <div class="achievement-desc">Restructured fleet operations and supplier logistics at Badawistore Group, cutting transport costs by 80%.</div>
     </div>
     <div class="achievement-card">
-      <div class="achievement-metric">100%</div>
-      <div class="achievement-title">Inventory Accuracy</div>
-      <div class="achievement-desc">Achieved zero waste from expired products using FIFO/ABC Analysis across all FMCG retail operations in Mali.</div>
+      <div class="achievement-num">100%</div>
+      <div class="achievement-label">Inventory Accuracy</div>
+      <div class="achievement-desc">Achieved full inventory accuracy through systematic cycle counting and ERP integration across all SKUs.</div>
     </div>
     <div class="achievement-card">
-      <div class="achievement-metric">0</div>
-      <div class="achievement-title">Vehicle Downtime</div>
-      <div class="achievement-desc">Implemented preventive maintenance contract achieving 100% fleet reliability — zero unplanned downtime across the entire fleet.</div>
+      <div class="achievement-num">1</div>
+      <div class="achievement-label">New Store Launched</div>
+      <div class="achievement-desc">Led end-to-end launch of OUTLET223 — from location setup to staffing, systems, and first-day operations.</div>
     </div>
     <div class="achievement-card">
-      <div class="achievement-metric">1</div>
-      <div class="achievement-title">Full Store Launch</div>
-      <div class="achievement-desc">Led OUTLET223 store from ground-up: full project coordination, staff recruitment, training, and operations setup in Bamako, Mali.</div>
+      <div class="achievement-num">8yr</div>
+      <div class="achievement-label">Government Coordination</div>
+      <div class="achievement-desc">Senior liaison between international diplomats and Lebanese Ministry of Defense command. Classified report authorship.</div>
     </div>
     <div class="achievement-card">
-      <div class="achievement-metric">8yr</div>
-      <div class="achievement-title">Government Reporting</div>
-      <div class="achievement-desc">8 years producing critical operational reports for senior leadership at the Lebanese Ministry of Defense under strict security protocols.</div>
+      <div class="achievement-num">4+</div>
+      <div class="achievement-label">International Supplier Countries</div>
+      <div class="achievement-desc">Coordinated procurement and logistics with suppliers in Indonesia, France, Turkey, and the UAE.</div>
     </div>
     <div class="achievement-card">
-      <div class="achievement-metric">6+</div>
-      <div class="achievement-title">International Suppliers</div>
-      <div class="achievement-desc">Coordinated procurement with suppliers across Indonesia, France, Turkey, and Dubai simultaneously.</div>
+      <div class="achievement-num">AUB</div>
+      <div class="achievement-label">AI & Data Science Diploma</div>
+      <div class="achievement-desc">Professional Diploma from the American University of Beirut. Python, ML, LightGBM, SHAP, data visualization.</div>
     </div>
   </div>
-</section>
-
-<!-- COMPETENCIES -->
-<section id="competencies">
-  <div class="section-eyebrow">Core Skills</div>
-  <div class="section-title">What I bring to the table</div>
-  <div class="section-divider"></div>
-  <div class="competencies-grid">
-    <div class="competency-card">
-      <span class="competency-icon">🚚</span>
-      <div class="competency-title">Logistics & Supply Chain</div>
-      <ul class="competency-list">
-        <li>End-to-end operations management</li>
-        <li>Fleet optimization & maintenance</li>
-        <li>International procurement</li>
-        <li>FIFO / ABC inventory analysis</li>
-        <li>Route optimization</li>
-      </ul>
-    </div>
-    <div class="competency-card">
-      <span class="competency-icon">👥</span>
-      <div class="competency-title">Team & HR Management</div>
-      <ul class="competency-list">
-        <li>Full-cycle recruitment & onboarding</li>
-        <li>Payroll & benefits administration</li>
-        <li>Performance management</li>
-        <li>Staff training & development</li>
-        <li>Government compliance</li>
-      </ul>
-    </div>
-    <div class="competency-card">
-      <span class="competency-icon">📊</span>
-      <div class="competency-title">Reporting & Data Analysis</div>
-      <ul class="competency-list">
-        <li>Advanced Microsoft Excel</li>
-        <li>ERP systems management</li>
-        <li>KPI tracking & dashboards</li>
-        <li>Government-level documentation</li>
-        <li>Operational performance reports</li>
-      </ul>
-    </div>
-    <div class="competency-card">
-      <span class="competency-icon">🤝</span>
-      <div class="competency-title">Coordination & Protocol</div>
-      <ul class="competency-list">
-        <li>International diplomat liaison</li>
-        <li>Crisis management</li>
-        <li>Customer problem resolution</li>
-        <li>Cross-cultural communication</li>
-        <li>High-pressure environments</li>
-      </ul>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <div class="section-eyebrow">Career History</div>
-  <div class="section-title">Professional Experience</div>
-  <div class="section-divider"></div>
-
-  <div class="exp-item">
-    <div>
-      <div class="exp-period">2021 — 2025</div>
-      <div class="exp-company">Badawistore Group</div>
-      <div class="exp-location">Bamako, Mali</div>
+<div class="container" id="experience" style="padding-top:0">
+  <div class="section-label">Career</div>
+  <h2>Professional Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2021 — 2025</div>
+      <div class="timeline-role">Operations & Logistics Manager</div>
+      <div class="timeline-org">Badawistore Group · Mali, West Africa</div>
+      <div class="timeline-desc">
+        Managed full end-to-end retail and logistics operations for a multi-outlet FMCG group.
+        Achieved 100% inventory accuracy. Reduced transportation costs by 80% through fleet restructuring.
+        Led launch of OUTLET223 store. Coordinated procurement with international suppliers across
+        Indonesia, France, Turkey, and Dubai. Managed HR, fleet, and stock control teams simultaneously.
+      </div>
     </div>
-    <div>
-      <div class="exp-role">Logistics Operations Manager</div>
-      <ul class="exp-bullets">
-        <li>Managed integrated daily operations for FMCG retail stores including food and confectionery products</li>
-        <li>Achieved <strong>100% inventory accuracy</strong> with zero waste from expired products using FIFO/ABC Analysis</li>
-        <li>Led launch of <strong>OUTLET223</strong> — new store in Bamako from ground-up: full project coordination, staff recruitment, training, and operations setup</li>
-        <li>Reduced operational and transportation costs by <strong>80%</strong> through logistics process and fleet route optimization</li>
-        <li>Coordinated with international suppliers across Indonesia, France, Turkey, and Dubai</li>
-        <li>Full-cycle HR management: recruitment, staff training, payroll, and leave administration</li>
-        <li>Implemented preventive maintenance contract achieving <strong>zero vehicle downtime</strong> and 100% fleet reliability</li>
-      </ul>
+    <div class="timeline-item">
+      <div class="timeline-date">2012 — 2020</div>
+      <div class="timeline-role">Reporting & Liaison Coordinator</div>
+      <div class="timeline-org">Lebanese Ministry of Defense · Beirut, Lebanon</div>
+      <div class="timeline-desc">
+        High-level coordination between international diplomatic missions and local military command.
+        Authored critical intelligence and operational reports under strict security protocols.
+        8 years of advanced Excel-based data management and structured government reporting.
+      </div>
     </div>
-  </div>
-
-  <div class="exp-item">
-    <div>
-      <div class="exp-period">2012 — 2020</div>
-      <div class="exp-company">Lebanese Ministry of Defense</div>
-      <div class="exp-location">Lebanon</div>
-    </div>
-    <div>
-      <div class="exp-role">Reporting & Liaison Coordinator</div>
-      <ul class="exp-bullets">
-        <li>High-level coordination between <strong>international diplomats</strong> and local command — protocol management</li>
-        <li>Authored critical operational reports for senior leadership under strict security protocols</li>
-        <li>Advanced Microsoft Excel and Word — complex government reports, spreadsheets, and formal documentation</li>
-        <li>Professional multilingual communication with government and international agencies</li>
-        <li>Systematic documentation of government data under strict deadlines and security protocols</li>
-      </ul>
+    <div class="timeline-item">
+      <div class="timeline-date">2025</div>
+      <div class="timeline-role">Professional Diploma — AI & Data Science</div>
+      <div class="timeline-org">American University of Beirut (AUB)</div>
+      <div class="timeline-desc">
+        Comprehensive program covering Python, machine learning, LightGBM, SHAP, data visualization,
+        and AI application development. Complemented by certifications from DataCamp, Cisco,
+        LinkedIn Learning, and edX. Applied learning through 3 published Microsoft Store applications
+        and 6+ AI/data projects.
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- EDUCATION -->
-<section class="education" id="education">
-  <div class="section-eyebrow">Education</div>
-  <div class="section-title">Academic Background</div>
-  <div class="section-divider"></div>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-year">2025</div>
-      <div class="edu-degree">Professional Diploma in AI & Data Science</div>
-      <div class="edu-school">American University of Beirut (AUB)</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-year">2021</div>
-      <div class="edu-degree">Bachelor of Arts in Communication</div>
-      <div class="edu-school">Lebanese International University (LIU)</div>
-    </div>
-  </div>
-</section>
+<!-- PUBLISHED APPS -->
+<div class="container" id="apps" style="padding-top:0">
+  <div class="section-label">Microsoft Store · Published Software</div>
+  <h2>Built & Shipped</h2>
+  <div class="apps-row">
 
-<!-- LANGUAGES -->
-<section style="padding: 4rem 3rem; background: var(--gray-light);">
-  <div class="section-eyebrow">Languages</div>
-  <div class="section-title">Multilingual Communication</div>
-  <div class="section-divider"></div>
-  <div class="languages-grid">
-    <div class="lang-card">
-      <div class="lang-name">Arabic</div>
-      <div class="lang-level">Native</div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-name">English</div>
-      <div class="lang-level">Professional</div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-name">French</div>
-      <div class="lang-level">Advanced</div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-name">Turkish</div>
-      <div class="lang-level">Intermediate</div>
-    </div>
-  </div>
-</section>
+    <a class="ops-app-card main" href="https://apps.microsoft.com/detail/9PBLQP22W6QF?hl=en-us&gl=TR&ocid=pdpshare" target="_blank">
+      <div class="ops-app-badge">★ Flagship</div>
+      <div class="ops-app-name">LogiPredict: Inventory Risk AI</div>
+      <div class="ops-app-desc">
+        ML-powered stockout risk monitor for FMCG. Predicts which SKUs will hit zero stock
+        7–14 days ahead, explains why using SHAP, and runs 100% offline.
+        Built on 13 years of real FMCG supply chain knowledge.
+      </div>
+      <div class="ops-app-link">↗ Download free on Microsoft Store</div>
+    </a>
 
-<!-- TECH EDGE -->
-<section class="tech-edge" id="tech">
-  <div class="section-eyebrow">Competitive Advantage</div>
-  <div class="section-title">The modern operations edge</div>
-  <div class="section-divider"></div>
-  <p>Unlike most operations managers, I hold a <strong>Professional Diploma in AI & Data Science from AUB</strong>. This means I don't just manage processes — I automate them, analyze them, and build custom tools to improve them. I actively build AI-powered workflows, dashboards, and automation systems from scratch to solve real operational problems.</p>
-  <div class="tech-pills">
-    <span class="tech-pill">Python & Automation</span>
-    <span class="tech-pill">Power BI Dashboards</span>
-    <span class="tech-pill">AI & Machine Learning</span>
-    <span class="tech-pill">ERP Systems</span>
-    <span class="tech-pill">Data Analysis</span>
-    <span class="tech-pill">Process Optimization</span>
-    <span class="tech-pill">Inventory Systems</span>
-    <span class="tech-pill">RAG Pipelines</span>
+    <a class="ops-app-card" href="https://apps.microsoft.com/detail/9NTJWJ3RGSNJ?hl=en-us&gl=TR&ocid=pdpshare" target="_blank">
+      <div class="ops-app-badge">35.7% conversion</div>
+      <div class="ops-app-name">Privacy Filter Pro</div>
+      <div class="ops-app-desc">
+        Screen privacy tool for professionals on calls and in open offices.
+        124 installs in 30 days. 1 in 3 visitors installs it — well above industry average.
+      </div>
+      <div class="ops-app-link">↗ Download free on Microsoft Store</div>
+    </a>
+
+    <a class="ops-app-card" href="https://apps.microsoft.com/detail/9NPG5DCPT386?hl=en-us&gl=TR&ocid=pdpshare" target="_blank">
+      <div class="ops-app-badge">Published</div>
+      <div class="ops-app-name">SnipText OCR</div>
+      <div class="ops-app-desc">
+        Windows screen OCR utility. Snip any area, extract the text instantly.
+        No manual retyping — built for operational efficiency.
+      </div>
+      <div class="ops-app-link">↗ Download free on Microsoft Store</div>
+    </a>
+
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="section-eyebrow">Let's Talk</div>
-  <div class="section-title">Ready to contribute from day one</div>
-  <div class="section-divider"></div>
-  <p>13+ years of hands-on experience. Available immediately. Willing to relocate anywhere the opportunity is right.</p>
-  <div class="contact-actions">
-    <a href="https://www.linkedin.com/in/kayyarmostapha/" class="btn-white" target="_blank">Connect on LinkedIn →</a>
+<div class="container" id="contact" style="padding-top:0">
+  <div class="contact-section">
+    <div class="section-label" style="display:flex;justify-content:center">Open to Work</div>
+    <h2>Ready to contribute from day one.</h2>
+    <p>
+      Seeking operations, supply chain, and logistics management roles — with particular interest
+      in opportunities in Saudi Arabia and the GCC region. Available immediately. Willing to relocate.
+    </p>
+    <div class="contact-actions">
+      <a href="https://www.linkedin.com/in/kayyarmostapha/" target="_blank" class="btn-green">Connect on LinkedIn →</a>
+      <a href="/" class="btn-outline">View AI Portfolio →</a>
+    </div>
+    <div class="email-line">
+      kayyarmostapha@gmail.com — <a href="mailto:kayyarmostapha@gmail.com">Send email</a>
+    </div>
   </div>
-  <div class="contact-email">or reach me directly at <span>kayyarmustafa@gmail.com</span></div>
-</section>
+</div>
 
 <footer>
-  <div>© 2026 Mostapha Kayyar</div>
-  <div>Also see: <a href="https://mostaphakayyar.github.io">Tech & AI Portfolio →</a></div>
+  <div>© 2026 Mostapha Kayyar · Operations & Logistics</div>
+  <div>
+    <a href="https://www.linkedin.com/in/kayyarmostapha/" target="_blank">LinkedIn</a> ·
+    <a href="/">AI Portfolio</a> ·
+    Hosted free on GitHub Pages
+  </div>
 </footer>
 
 </body>
